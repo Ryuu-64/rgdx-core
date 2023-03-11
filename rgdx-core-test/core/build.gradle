@@ -1,0 +1,10 @@
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+
+sourceSets.main.java.srcDirs = [ "src/" ]
+
+eclipse.project.name = appName + "-core"

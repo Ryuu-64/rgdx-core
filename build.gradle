@@ -1,0 +1,28 @@
+apply plugin: 'java-library'
+
+group 'org.ryuu'
+version '0.1.0-1.9.9'
+
+repositories {
+    mavenCentral()
+    maven { url 'https://jitpack.io' }
+}
+
+dependencies {
+    // https://mvnrepository.com/artifact/com.badlogicgames.gdx/gdx
+    implementation group: 'com.badlogicgames.gdx', name: 'gdx', version: '1.9.9'
+    // https://mvnrepository.com/artifact/com.badlogicgames.gdx/gdx-box2d
+    implementation group: 'com.badlogicgames.gdx', name: 'gdx-box2d', version: '1.9.9'
+    // https://mvnrepository.com/artifact/org.projectlombok/lombok
+    annotationProcessor group: 'org.projectlombok', name: 'lombok', version: '1.18.24'
+    // https://stackoverflow.com/questions/50519138/annotationprocessor-gradle-4-7-configuration-doesnt-run-lombok
+    //noinspection AnnotationProcessorOnCompilePath
+    compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.24'
+    implementation 'com.github.Ryuu-64:gdx-box2d-interface-contact-listener:1.0.0-1.9.9'
+    implementation 'com.github.Ryuu-64:Functional:1.0.1'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}

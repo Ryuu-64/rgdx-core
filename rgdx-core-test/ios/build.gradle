@@ -1,0 +1,22 @@
+java {
+	sourceCompatibility = JavaVersion.VERSION_1_8
+	targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+sourceSets.main.java.srcDirs = [ "src/" ]
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+
+ext {
+	mainClassName = "org.ryuu.rgdx.IOSLauncher"
+}
+
+launchIPhoneSimulator.dependsOn build
+launchIPadSimulator.dependsOn build
+launchIOSDevice.dependsOn build
+createIPA.dependsOn build
+
+robovm {
+	archs = "thumbv7:arm64"
+}
+
+eclipse.project.name = appName + "-ios"
