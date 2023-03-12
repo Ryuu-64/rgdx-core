@@ -19,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 public class SceneTest {
     private RGdxApplication rgdxApplication;
-    
+
     private MulticastApplicationListener applicationListener;
 
     @BeforeEach

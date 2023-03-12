@@ -3,18 +3,19 @@ package org.ryuu.gdx.scenes.scene2d;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.utils.Disposable;
-import org.ryuu.gdx.ApplicationListenerManagement;
+import lombok.Getter;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Scene implements Disposable {
+    @Getter
     private final Group root = new Group();
 
+    @Getter
     private final List<Canvas> canvases = new ArrayList<>();
 
     public Scene() {
-        CanvasManagement.getGameplayCanvas().getStage().addActor(root);
     }
 
     public void addActor(Actor actor) {
@@ -22,7 +23,6 @@ public class Scene implements Disposable {
     }
 
     public void addCanvas(Canvas canvas) {
-        canvas.attachTo(ApplicationListenerManagement.getApplicationListener());
         canvases.add(canvas);
     }
 
