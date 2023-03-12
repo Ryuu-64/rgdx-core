@@ -15,9 +15,6 @@ public class Scene implements Disposable {
     @Getter
     private final List<Canvas> canvases = new ArrayList<>();
 
-    public Scene() {
-    }
-
     public void addActor(Actor actor) {
         root.addActor(actor);
     }
