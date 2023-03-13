@@ -8,13 +8,10 @@ import lombok.Getter;
 import org.ryuu.functional.Action;
 import org.ryuu.functional.Action2Args;
 import org.ryuu.functional.Actions;
-import org.ryuu.gdx.InputProcessorManagement;
+import org.ryuu.gdx.InputProcessorManager;
 import org.ryuu.gdx.MulticastApplicationListener;
 
 public class Canvas implements Disposable {
-    @Getter
-    protected final Viewport viewport;
-
     @Getter
     protected final Stage stage;
 
@@ -23,9 +20,8 @@ public class Canvas implements Disposable {
     public final Actions dispose = new Actions();
 
     public Canvas(Viewport viewport) {
-        this.viewport = viewport;
         stage = new Stage(viewport);
-        InputProcessorManagement.getInputMultiplexer().addProcessor(stage);
+        InputProcessorManager.getInputMultiplexer().addProcessor(stage);
     }
 
     public void render() {
@@ -34,8 +30,8 @@ public class Canvas implements Disposable {
         afterDraw.invoke();
     }
 
-    public void resize(int width, int height) {
-        viewport.update(width, height);
+    public void resize(int screenWidth, int screenHeight) {
+        stage.getViewport().update(screenWidth, screenHeight);
     }
 
     public void addActor(Actor actor) {

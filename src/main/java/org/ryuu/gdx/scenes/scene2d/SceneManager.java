@@ -1,21 +1,23 @@
 package org.ryuu.gdx.scenes.scene2d;
 
-import org.ryuu.gdx.ApplicationListenerManagement;
+import lombok.Getter;
+import org.ryuu.gdx.ApplicationListenerManager;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class SceneManagement {
+public class SceneManager {
+    @Getter
     private static final List<Scene> scenes = new ArrayList<>();
 
-    private SceneManagement() {
+    private SceneManager() {
     }
 
     public static void loadScene(Scene scene) {
         scenes.add(scene);
-        CanvasManagement.getGameplayCanvas().getStage().addActor(scene.getRoot());
+        CanvasManager.getGameplayCanvas().getStage().addActor(scene.getRoot());
         for (Canvas canvas : scene.getCanvases()) {
-            canvas.attachTo(ApplicationListenerManagement.getApplicationListener());
+            canvas.attachTo(ApplicationListenerManager.getApplicationListener());
         }
     }
 

@@ -24,8 +24,8 @@ public class MulticastApplicationListener implements ApplicationListener, Dispos
     }
 
     @Override
-    public void resize(int width, int height) {
-        resize.invoke(width, height);
+    public void resize(int screenWidth, int screenHeight) {
+        resize.invoke(screenWidth, screenHeight);
     }
 
     @Override

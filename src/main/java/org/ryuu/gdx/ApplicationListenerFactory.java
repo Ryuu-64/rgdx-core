@@ -8,7 +8,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import org.ryuu.gdx.scenes.scene2d.Canvas;
-import org.ryuu.gdx.scenes.scene2d.CanvasManagement;
+import org.ryuu.gdx.scenes.scene2d.CanvasManager;
 
 public class ApplicationListenerFactory {
     /**
@@ -17,18 +17,18 @@ public class ApplicationListenerFactory {
      * Therefore, the creation of {@link Canvas} must be at or after {@link ApplicationListener#create()}.
      */
     public static void create(float minWorldWidth, float minWorldHeight) {
-        if (ApplicationListenerManagement.getApplicationListener() != null) {
+        if (ApplicationListenerManager.getApplicationListener() != null) {
             return;
         }
 
-        InputProcessorManagement.setInputMultiplexer(new InputMultiplexer());
+        InputProcessorManager.setInputMultiplexer(new InputMultiplexer());
         MulticastApplicationListener applicationListener = new MulticastApplicationListener();
         applicationListener.render.add(() -> Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT));
         applicationListener.create.add(() -> {
             Canvas gameplayCanvas = new Canvas(new ExtendViewport(minWorldWidth, minWorldHeight));
             gameplayCanvas.attachTo(applicationListener);
-            CanvasManagement.setGameplayCanvas(gameplayCanvas);
+            CanvasManager.setGameplayCanvas(gameplayCanvas);
         });
-        ApplicationListenerManagement.setApplicationListener(applicationListener);
+        ApplicationListenerManager.setApplicationListener(applicationListener);
     }
 }

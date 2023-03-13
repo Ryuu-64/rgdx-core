@@ -4,11 +4,11 @@ import com.badlogic.gdx.InputMultiplexer;
 import lombok.Getter;
 import lombok.Setter;
 
-public class InputProcessorManagement {
+public class InputProcessorManager {
     @Getter
     @Setter
     public static InputMultiplexer inputMultiplexer;
 
-    private InputProcessorManagement() {
+    private InputProcessorManager() {
     }
 }

@@ -3,12 +3,12 @@ package org.ryuu.gdx;
 import lombok.Getter;
 import lombok.Setter;
 
-public class ApplicationListenerManagement {
+public class ApplicationListenerManager {
     @SuppressWarnings("GDXJavaStaticResource")
     @Getter
     @Setter
     private static MulticastApplicationListener applicationListener;
 
-    private ApplicationListenerManagement() {
+    private ApplicationListenerManager() {
     }
 }

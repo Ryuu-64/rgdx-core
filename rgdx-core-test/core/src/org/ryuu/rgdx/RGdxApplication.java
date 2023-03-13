@@ -3,7 +3,7 @@ package org.ryuu.rgdx;
 import com.badlogic.gdx.ApplicationListener;
 import lombok.Getter;
 import org.ryuu.gdx.ApplicationListenerFactory;
-import org.ryuu.gdx.ApplicationListenerManagement;
+import org.ryuu.gdx.ApplicationListenerManager;
 import org.ryuu.gdx.MulticastApplicationListener;
 
 public class RGdxApplication implements ApplicationListener {
@@ -12,7 +12,7 @@ public class RGdxApplication implements ApplicationListener {
 
     public RGdxApplication() {
         ApplicationListenerFactory.create(16, 9);
-        applicationListener = ApplicationListenerManagement.getApplicationListener();
+        applicationListener = ApplicationListenerManager.getApplicationListener();
     }
 
     @Override
