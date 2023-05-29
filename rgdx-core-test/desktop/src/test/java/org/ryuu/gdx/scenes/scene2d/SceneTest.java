@@ -19,7 +19,7 @@ public class SceneTest {
 
     @BeforeEach
     void createApplicationListener() {
-        ApplicationListenerFactory.create(16, 9);
+        ApplicationListenerManager.create(16, 9);
         applicationListener = ApplicationListenerManager.getApplicationListener();
     }
 
